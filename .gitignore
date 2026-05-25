@@ -1,0 +1,11 @@
+# Claude Code
+.claude/
+
+# Windows
+*.lnk
+Thumbs.db
+desktop.ini
+
+# Archivos temporales
+*.tmp
+*.bak
