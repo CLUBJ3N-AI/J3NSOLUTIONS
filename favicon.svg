@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0035"/>
+      <stop offset="100%" style="stop-color:#0a0020"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo redondeado oscuro -->
+  <rect width="100" height="100" rx="22" fill="url(#bg)"/>
+
+  <!-- Cubo hexagonal - cara frontal izquierda -->
+  <polygon points="50,18 82,36 82,64 50,82 18,64 18,36"
+           fill="none" stroke="#9333ea" stroke-width="3.5"
+           filter="url(#glow)" opacity="0.9"/>
+
+  <!-- Líneas internas del cubo (profundidad) -->
+  <line x1="50" y1="18" x2="50" y2="50" stroke="#c084fc" stroke-width="2.5" filter="url(#glow)"/>
+  <line x1="82" y1="36" x2="50" y2="50" stroke="#c084fc" stroke-width="2.5" filter="url(#glow)"/>
+  <line x1="18" y1="36" x2="50" y2="50" stroke="#c084fc" stroke-width="2.5" filter="url(#glow)"/>
+
+  <!-- Texto J3N centrado -->
+  <text x="50" y="56"
+        font-family="Arial Black, sans-serif"
+        font-size="18" font-weight="900"
+        text-anchor="middle"
+        fill="#ffffff"
+        filter="url(#glow)"
+        letter-spacing="-1">J3N</text>
+</svg>
