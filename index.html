@@ -1641,49 +1641,93 @@
         }
         .hero-tools-cards {
             display: flex;
-            gap: 14px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
         .hero-tool-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
-            padding: 10px 18px 10px 12px;
-            background: rgba(8,0,22,0.72);
-            border: 1px solid rgba(124,58,237,0.28);
-            border-radius: 14px;
+            gap: 14px;
+            padding: 28px 36px 22px;
+            background: linear-gradient(135deg, rgba(20,0,50,0.92) 0%, rgba(8,0,22,0.95) 100%);
+            border: 1px solid rgba(124,58,237,0.45);
+            border-radius: 22px;
             text-decoration: none;
             color: var(--white);
-            backdrop-filter: blur(12px);
-            transition: border-color 0.28s, box-shadow 0.28s, transform 0.22s;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(124,58,237,0.2), inset 0 1px 0 rgba(167,139,250,0.1);
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.25s;
             cursor: pointer;
+            min-width: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-tool-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.18) 0%, transparent 65%);
+            pointer-events: none;
         }
         .hero-tool-card:hover {
-            border-color: rgba(167,139,250,0.65);
-            box-shadow: 0 0 24px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.15);
-            transform: translateY(-2px);
+            border-color: rgba(167,139,250,0.8);
+            box-shadow: 0 0 50px rgba(124,58,237,0.55), 0 0 100px rgba(124,58,237,0.2), inset 0 1px 0 rgba(167,139,250,0.2);
+            transform: translateY(-4px);
         }
         .hero-tool-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
             object-fit: contain;
-            background: rgba(124,58,237,0.12);
-            padding: 3px;
+            background: rgba(124,58,237,0.15);
+            padding: 8px;
             flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(124,58,237,0.35);
+            border: 1px solid rgba(124,58,237,0.3);
         }
-        .hero-tool-info { display: flex; flex-direction: column; gap: 2px; }
+        .hero-tool-info { display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .hero-tool-name {
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 800;
             color: var(--white);
-            letter-spacing: 0.04em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
         .hero-tool-desc {
-            font-size: 0.65rem;
-            color: rgba(167,139,250,0.7);
-            letter-spacing: 0.01em;
+            font-size: 0.68rem;
+            color: rgba(167,139,250,0.75);
+            letter-spacing: 0.02em;
+            text-align: center;
+        }
+        .hero-tool-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            background: rgba(124,58,237,0.25);
+            border: 1px solid rgba(124,58,237,0.4);
+            border-radius: 20px;
+            font-size: 0.6rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(192,132,252,0.9);
+        }
+        .hero-tool-badge::before {
+            content: '';
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #a855f7;
+            box-shadow: 0 0 6px #a855f7;
+            animation: pdot 2s ease-in-out infinite;
+        }
+        .hero-tool-cta {
+            font-size: 0.7rem;
+            color: rgba(167,139,250,0.6);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 2px;
         }
         /* ─────────────────────────── */
         .hero-stats-row {
@@ -2437,6 +2481,7 @@
             <div class="hero-tools-cards">
 
                 <a href="https://clubj3n-ai.github.io/MAXFINDER/#" target="_blank" class="hero-tool-card">
+                    <span class="hero-tool-badge">Herramienta IA</span>
                     <img src="https://clubj3n-ai.github.io/MAXFINDER/logo.png"
                          alt="Maxfinder logo"
                          class="hero-tool-logo"
@@ -2445,6 +2490,7 @@
                         <span class="hero-tool-name">Maxfinder</span>
                         <span class="hero-tool-desc">500 leads verificados en 60 seg.</span>
                     </div>
+                    <span class="hero-tool-cta">Acceder →</span>
                 </a>
 
                 <!-- Aquí irán más herramientas -->
