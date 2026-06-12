@@ -2428,6 +2428,55 @@
 
         /* ── Scroll hint glow ── */
         .scroll-line { box-shadow: 0 0 8px rgba(124,58,237,0.6); }
+
+        /* ── GRÁFICA PROCESO ── */
+        .proc-chart {
+            background: rgba(8,0,24,0.7);
+            border: 1px solid rgba(124,58,237,0.22);
+            border-radius: 20px;
+            padding: 40px 48px;
+            margin-top: 56px;
+            backdrop-filter: blur(16px);
+        }
+        .proc-chart-title {
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(167,139,250,0.6);
+            margin-bottom: 32px;
+        }
+        .proc-bars { display: flex; flex-direction: column; gap: 20px; }
+        .proc-bar-row {
+            display: grid;
+            grid-template-columns: 220px 1fr 48px;
+            align-items: center;
+            gap: 20px;
+        }
+        .proc-bar-lbl {
+            font-size: 0.82rem;
+            color: rgba(200,185,255,0.8);
+            white-space: nowrap;
+        }
+        .proc-bar-track {
+            height: 8px;
+            background: rgba(124,58,237,0.12);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .proc-bar-fill {
+            height: 100%;
+            width: 0;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #7c3aed, #c084fc);
+            box-shadow: 0 0 12px rgba(192,132,252,0.5);
+            transition: width 1.4s cubic-bezier(.4,0,.2,1);
+        }
+        .proc-bar-pct {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #c084fc;
+            text-align: right;
+        }
     </style>
     <!-- Vanta.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -2626,8 +2675,8 @@
     </div>
 </div>
 
-<!-- ── PROYECTOS — eliminado ── -->
-<section class="sec sec-alt" id="proyectos" style="display:none">
+<!-- ── PROYECTOS ── -->
+<section class="sec sec-alt" id="proyectos">
     <div class="pg2">
         <div class="reveal">
             <span class="sec-lbl">Nuestro trabajo</span>
@@ -2678,8 +2727,8 @@
     </div>
 </section>
 
-<!-- ── PROCESO — eliminado ── -->
-<section class="sec" id="proceso" style="display:none">
+<!-- ── PROCESO ── -->
+<section class="sec" id="proceso">
     <div class="pg2">
         <div class="reveal">
             <span class="sec-lbl">Cómo trabajamos</span>
@@ -2687,39 +2736,71 @@
             <p class="sec-sub">Cada semana sabes exactamente en qué estamos y qué viene después. Sin humo, sin excusas: solo progreso medible y comunicación directa desde el día uno.</p>
         </div>
 
-<div class="proc2-grid" style="margin-top:32px;">
+        <!-- Gráfica de rendimiento por servicio -->
+        <div class="proc-chart reveal" style="transition-delay:.1s">
+            <p class="proc-chart-title">Rendimiento medio por servicio</p>
+            <div class="proc-bars">
+                <div class="proc-bar-row">
+                    <span class="proc-bar-lbl">Diseño Web & UX</span>
+                    <div class="proc-bar-track"><div class="proc-bar-fill" data-pct="96"></div></div>
+                    <span class="proc-bar-pct">96%</span>
+                </div>
+                <div class="proc-bar-row">
+                    <span class="proc-bar-lbl">Desarrollo Web & Apps</span>
+                    <div class="proc-bar-track"><div class="proc-bar-fill" data-pct="98"></div></div>
+                    <span class="proc-bar-pct">98%</span>
+                </div>
+                <div class="proc-bar-row">
+                    <span class="proc-bar-lbl">Automatización & IA</span>
+                    <div class="proc-bar-track"><div class="proc-bar-fill" data-pct="93"></div></div>
+                    <span class="proc-bar-pct">93%</span>
+                </div>
+                <div class="proc-bar-row">
+                    <span class="proc-bar-lbl">SEO Técnico</span>
+                    <div class="proc-bar-track"><div class="proc-bar-fill" data-pct="89"></div></div>
+                    <span class="proc-bar-pct">89%</span>
+                </div>
+                <div class="proc-bar-row">
+                    <span class="proc-bar-lbl">Satisfacción del cliente</span>
+                    <div class="proc-bar-track"><div class="proc-bar-fill" data-pct="98" style="background:linear-gradient(90deg,#22c55e,#86efac)"></div></div>
+                    <span class="proc-bar-pct" style="color:#86efac">98%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="proc2-grid" style="margin-top:48px;">
             <div class="proc2-item reveal">
                 <div class="proc2-num">01</div>
                 <span class="proc2-phase">Semana 1</span>
                 <h3>Descubrimiento</h3>
-                <p>Antes de escribir una sola línea de código, entendemos tu negocio a fondo. Analizamos tu competencia, tus usuarios y tus objetivos reales. Esta fase es la que determina el éxito del proyecto.</p>
+                <p>Antes de escribir una sola línea de código, entendemos tu negocio a fondo. Analizamos tu competencia, tus usuarios y tus objetivos reales.</p>
                 <ul class="proc2-ul">
                     <li>Auditoría completa de negocio y competencia</li>
                     <li>Definición de KPIs y métricas de éxito</li>
                     <li>Mapa de procesos y cuellos de botella</li>
-                    <li>Documento de requisitos técnicos y funcionales</li>
+                    <li>Documento de requisitos técnicos</li>
                 </ul>
             </div>
             <div class="proc2-item reveal" style="transition-delay:.1s">
                 <div class="proc2-num">02</div>
                 <span class="proc2-phase">Semanas 1–2</span>
                 <h3>Estrategia & Diseño</h3>
-                <p>Con los hallazgos en mano, construimos la arquitectura del proyecto y diseñamos la experiencia completa. Validamos contigo cada decisión importante antes de avanzar.</p>
+                <p>Construimos la arquitectura del proyecto y diseñamos la experiencia completa. Validamos contigo cada decisión antes de avanzar.</p>
                 <ul class="proc2-ul">
                     <li>Arquitectura técnica y selección de stack</li>
-                    <li>Wireframes y prototipos interactivos en Figma</li>
+                    <li>Wireframes y prototipos en Figma</li>
                     <li>Plan con hitos y fechas reales</li>
-                    <li>Presupuesto final cerrado sin letra pequeña</li>
+                    <li>Presupuesto final cerrado</li>
                 </ul>
             </div>
             <div class="proc2-item reveal" style="transition-delay:.2s">
                 <div class="proc2-num">03</div>
                 <span class="proc2-phase">Semanas 2–6</span>
                 <h3>Desarrollo</h3>
-                <p>Trabajamos en sprints semanales con demos en vivo cada viernes. Ves el progreso real, puedes dar feedback y ajustar el rumbo antes de que algo se construya mal.</p>
+                <p>Sprints semanales con demos en vivo cada viernes. Ves el progreso real y puedes dar feedback antes de que algo se construya mal.</p>
                 <ul class="proc2-ul">
                     <li>Demo semanal en vivo con tu equipo</li>
-                    <li>Acceso al repositorio y entorno de staging</li>
+                    <li>Acceso al repositorio y staging</li>
                     <li>Tests automatizados en cada entrega</li>
                     <li>Feedback incorporado en el siguiente sprint</li>
                 </ul>
@@ -2728,12 +2809,12 @@
                 <div class="proc2-num">04</div>
                 <span class="proc2-phase">Lanzamiento + ∞</span>
                 <h3>Lanzamiento & Crecimiento</h3>
-                <p>Desplegamos con zero-downtime, formamos a tu equipo y activamos el monitoreo 24/7. El proyecto no termina aquí: seguimos mejorándolo contigo a largo plazo.</p>
+                <p>Desplegamos con zero-downtime, formamos a tu equipo y activamos el monitoreo 24/7. El proyecto no termina aquí.</p>
                 <ul class="proc2-ul">
-                    <li>Despliegue en producción con zero-downtime</li>
+                    <li>Despliegue en producción sin downtime</li>
                     <li>Formación completa para tu equipo</li>
                     <li>Monitoreo 24/7 y alertas automáticas</li>
-                    <li>Plan de mantenimiento y mejora continua</li>
+                    <li>Plan de mantenimiento continuo</li>
                 </ul>
             </div>
         </div>
@@ -3013,6 +3094,20 @@ document.querySelectorAll('.stats2-n[data-target]').forEach(el => {
         scrollTrigger: { trigger: '.stats2', start: 'top 80%' }
     });
 });
+
+/* ── Animación barras gráfica proceso ── */
+const barObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('.proc-bar-fill').forEach(bar => {
+                bar.style.width = bar.dataset.pct + '%';
+            });
+            barObserver.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.3 });
+const procChart = document.querySelector('.proc-chart');
+if (procChart) barObserver.observe(procChart);
 
 /* ── Ticker hover pause ── */
 const tk = document.querySelector('.ticker-track');
