@@ -1731,23 +1731,30 @@
         }
         /* ─────────────────────────── */
         .hero-stats-row {
+            position: absolute;
+            right: 48px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 0;
-            background: rgba(8,0,20,0.55);
+            background: rgba(8,0,20,0.60);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(124,58,237,0.22);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(124,58,237,0.28);
             border-radius: 16px;
-            padding: 20px 40px;
+            padding: 28px 28px;
             opacity: 0;
+            z-index: 20;
         }
         .hero-stat {
             text-align: center;
-            padding: 0 36px;
+            padding: 16px 12px;
         }
         .hero-stat-num {
             display: block;
-            font-size: 1.9rem;
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, #c084fc, #e9d5ff);
@@ -1755,17 +1762,17 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
         .hero-stat-lbl {
-            font-size: 0.68rem;
+            font-size: 0.6rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: rgba(167,139,250,0.55);
         }
         .hero-stat-divider {
-            width: 1px;
-            height: 40px;
+            width: 60%;
+            height: 1px;
             background: rgba(124,58,237,0.25);
             flex-shrink: 0;
         }
@@ -2498,23 +2505,24 @@
             </div>
         </div>
 
-        <div class="hero-stats-row">
-            <div class="hero-stat">
-                <span class="hero-stat-num" id="hs-vis">24,890</span>
-                <span class="hero-stat-lbl">Visitantes activos</span>
-            </div>
-            <div class="hero-stat-divider"></div>
-            <div class="hero-stat">
-                <span class="hero-stat-num" id="hs-proj">1,280</span>
-                <span class="hero-stat-lbl">Proyectos entregados</span>
-            </div>
-            <div class="hero-stat-divider"></div>
-            <div class="hero-stat">
-                <span class="hero-stat-num" id="hs-cli">98%</span>
-                <span class="hero-stat-lbl">Clientes satisfechos</span>
-            </div>
-        </div>
+    </div>
 
+    <!-- Panel stats vertical derecha -->
+    <div class="hero-stats-row">
+        <div class="hero-stat">
+            <span class="hero-stat-num" id="hs-vis">24,890</span>
+            <span class="hero-stat-lbl">Visitantes activos</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+            <span class="hero-stat-num" id="hs-proj">1,280</span>
+            <span class="hero-stat-lbl">Proyectos entregados</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+            <span class="hero-stat-num" id="hs-cli">98%</span>
+            <span class="hero-stat-lbl">Clientes satisfechos</span>
+        </div>
     </div>
 
     <div class="scroll-hint" id="scroll-hint">
